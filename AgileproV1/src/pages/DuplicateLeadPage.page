@@ -1,0 +1,28 @@
+<apex:page standardController="Lead" extensions="MyDuplicateLeadClass">
+  <script type="text/javascript">
+  function myFunction()
+  {
+  alert('Java Script');
+  method();
+  }
+  </script>
+  <apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockSection id="mySection"> 
+  <apex:inputField value="{!myLead.firstName}"/>
+  <apex:inputField value="{!myLead.lastName}"/>
+  <apex:inputField value="{!myLead.company}"/>
+  <apex:inputField value="{!myLead.Email}" onchange="myFunction()"/>
+  <!-- <apex:actionSupport action="{!duplicateLeadCheck}" event="onchange" rerender="mySection"/> -->
+  <apex:actionFunction name="method" action="{!duplicateLeadCheck}"/>
+  <apex:inputField value="{!myLead.MobilePhone}"/>
+  <apex:inputField value="{!myLead.Rating}"/>
+  <apex:inputField value="{!myLead.LeadSource}"/>
+  </apex:pageBlockSection>
+  <apex:pageBlockButtons >
+  <Apex:commandButton action="{!save}" value="save"/>
+  <Apex:commandButton action="{!cancel}" value="cancel"/>
+  </apex:pageBlockButtons>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>
